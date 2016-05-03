@@ -4,7 +4,8 @@ var w1, w2, w3, w4;
 
 var tables, curtains, bowls, table, curtain, bowl;
 var amount = 0;
-var loss = 0;
+var stop = 0;
+
 
 function preload() {
 	// Set up background
@@ -22,6 +23,7 @@ function preload() {
   Goudy = loadFont('../Umami-Wonton-Shop/fonts/GoudyStM-webfont.ttf');
 }
 
+
 function setup() {
   createCanvas(600, 450);
 
@@ -34,7 +36,12 @@ function setup() {
   w3 = new Group();
   w4 = new Group();
 
-  // Assign sprites to groups
+  fillGroup();
+ }
+
+
+function fillGroup() {
+	// Assign sprites to groups
   for(var i = 0; i < random(0, 5); i++) {
   var neww1 = createSprite(random(0,width), 0);
   neww1.addImage(won1);
@@ -59,16 +66,34 @@ function setup() {
   neww4.addImage(won4);
   w4.add(neww4);
   } 
- }
+}
+
 
 function draw() {
   background(247, 249, 166);
   table = image(tables, 0, 400, width, height);
-
   total = w1.length + w2.length + w3.length + w4.length;
-  bowl.position.x = mouseX;
 
-	if (total > 0) {
+  var begin = "Click anywhere to begin!";
+	fill(50);
+	textFont(Goudy);
+	textSize(18);
+	text(begin, width/3, height/2);
+
+  if (stop > 0) {
+	  background(247, 249, 166);
+	  table = image(tables, 0, 400, width, height);
+		play();  
+  }
+
+  curtain = image(curtains, 0, 0, width, height/4);
+}
+
+
+function play() {
+	bowl.position.x = mouseX;
+
+  if (total > 0) {
 	  console.log(w1.length, w2.length, w3.length, w4.length, total);
 		
 		var choose = floor(random(4));
@@ -83,7 +108,6 @@ function draw() {
   				amount++;
   			} else if (wonton1.position.y > height + 50) {
   				wonton1.remove();
-  				loss++;
   			}
 			}
 		} 
@@ -97,7 +121,6 @@ function draw() {
   				amount++;
   			} else if (wonton2.position.y > height + 50) {
   				wonton2.remove();
-  				loss++;
   			}
 			}
 		}
@@ -111,7 +134,6 @@ function draw() {
   				amount++;
   			} else if (wonton3.position.y > height + 50) {
   				wonton3.remove();
-  				loss++;
   			}
 			}
 		}
@@ -125,22 +147,30 @@ function draw() {
   				amount++;
   			} else if (wonton4.position.y > height + 20) {
   				wonton4.remove();
-   				loss++;
 	 			}
 			}
 		}
 
 		console.log("amount:", amount);
+		
 	} else {
-		var string = "You caught " + amount + " wontons!";
-
-		fill(50);
-		textFont(Goudy);
-		textSize(18);
-		text(string, width/3, height/2);
-		noLoop();
-	}
+			var string = "You caught " + amount + " wontons!";
+			text(string, width/3, height/2);
+			noLoop();
+	}	
 
   drawSprites();
-  curtain = image(curtains, 0, 0, width, height/4);
 }
+
+function mouseClicked() {
+	// Draw once
+  background(247, 249, 166);
+  table = image(tables, 0, 400, width, height);
+  fillGroup();
+
+  amount = 0;
+  stop = 1;
+
+	loop();
+	return false;
+ }
