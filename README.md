@@ -6,3 +6,4 @@ This project is a basic game of catching falling objects. The setting is a wonto
 * Thematically-relevant backgrounds may be used for the game as well as the website. 
 * Random selection of wontons should be responsive (algorithmically) to the lack of certain wontons, optimizing the selection for continuous flow of falling wontons. 
 * Left/right keys and z/x keys should also be connected to the bowl for optimized user-control of bowl. Likewise, speeds will also be set for how fast the bowl can move.
+* Scoring should also be created to keep track of how many of each type of wonton the user catches. Scoring should also be reflected on the curtain (as ongoing user-feedback).
