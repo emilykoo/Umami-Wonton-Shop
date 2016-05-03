@@ -1,0 +1,121 @@
+@font-face {
+	font-family: "Goudy";
+	src:
+		url("fonts/GoudyStM-webfont.ttf"),
+		url("fonts/GoudyStM-webfont.svg"),
+		url("fonts/GoudyStM-webfont.woff"),
+		url("fonts/GoudyStM-webfont.eot");
+}
+
+h3 {
+	font-family: "Goudy", Times, Arial, serif;
+	font-size: 1.5em;
+	line-height: 1.8em;
+	color: #643120;
+	text-align: center;	
+}
+
+p {
+	font-family: "Goudy", Times, Arial, serif;
+	font-size: 1.2em;
+	line-height: 1.3em;
+	color: #643120;
+}
+
+
+body {
+	background-color: #f7f9a6;
+	background-image: url('images/background.jpg');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: top center;
+	margin: 0;
+	padding: 0;
+}
+
+#container {
+	width: 90%;
+	margin: auto;
+}
+
+#lantern1 {
+	float: left;
+	position: relative;
+	left: -8px;
+	top: 60px;
+}
+
+#lantern2  {
+	float: right;
+	position: relative;
+	left: 8px;
+	top: 60px;
+}
+
+#tassle1 {
+	float: left;
+	position: relative;
+	top: 310px;
+	left: -103px;
+  transform-origin: 50% 0;
+  animation: swinging 3.5s ease-in-out forwards infinite;
+}
+
+#tassle2 {
+	position: relative;
+	top: 310px;
+	left: 938px;
+  transform-origin: 50% 0;
+  animation: swinging 3.5s ease-in-out forwards infinite;
+}
+
+@keyframes swinging{
+    0%{transform: rotate(10deg);}
+    50%{transform: rotate(-5deg)}
+    100%{transform: rotate(10deg);}
+}
+ 
+h3 {
+	width: 30%;
+	margin: auto;
+	background: rgba(247, 249, 166, 0.8);
+	margin-top: 4%;
+	border: 3px solid DarkRed;
+	border-radius: 3px;
+}
+
+.text {
+	margin: 0;
+	padding: 0;
+	width: 50%;
+	height: auto;
+	margin: auto;
+	margin-top: 2%;
+	margin-bottom: 2%; 
+	text-align: center;
+	background: rgba(247, 249, 166, 0.8);
+	border: 3px solid DarkRed;
+	border-radius: 3px;
+}
+
+#frames {
+	width: 50%;
+	height: 450px;
+	margin-top: -225px;
+	padding-left: 45px;
+	padding-right: 25px;
+	margin: auto;
+}
+
+iframe {
+	margin-left: 25px;
+	margin-right: 25px;
+	background-color: #e0e0e0; 
+	border: 5px solid Gold;
+}
+
+footer {
+	clear: both;
+	width: 100%;
+	height: 5em;
+}
